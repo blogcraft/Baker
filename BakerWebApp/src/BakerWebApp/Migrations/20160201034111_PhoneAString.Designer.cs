@@ -8,9 +8,10 @@ using BakerWebApp.Models;
 namespace BakerWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160201034111_PhoneAString")]
+    partial class PhoneAString
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -83,8 +84,7 @@ namespace BakerWebApp.Migrations
 
                     b.Property<string>("Telefono");
 
-                    b.Property<string>("UsuarioId")
-                        .IsRequired();
+                    b.Property<string>("UsuarioId");
 
                     b.HasKey("ClienteId");
                 });

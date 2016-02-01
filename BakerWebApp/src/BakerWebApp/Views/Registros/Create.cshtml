@@ -1,0 +1,72 @@
+@model BakerWebApp.Models.Registro
+
+@{
+    ViewData["Title"] = "Agregar";
+}
+
+<h2>Agregar</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Registro</h4>
+        <hr />
+        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="ClienteId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="ClienteId" class ="form-control"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="FechaRegistro" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="FechaRegistro" class="form-control" />
+                <span asp-validation-for="FechaRegistro" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Monto" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Monto" class="form-control" />
+                <span asp-validation-for="Monto" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Nota" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Nota" class="form-control" />
+                <span asp-validation-for="Nota" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="Pagado" />
+                    <label asp-for="Pagado"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="UsuarioId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="UsuarioId" class="form-control" />
+                <span asp-validation-for="UsuarioId" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Volver a Registros</a>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

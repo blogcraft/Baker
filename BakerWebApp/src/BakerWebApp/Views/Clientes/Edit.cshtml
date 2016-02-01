@@ -1,0 +1,66 @@
+@model BakerWebApp.Models.Cliente
+
+@{
+    ViewData["Title"] = "Modificar";
+}
+
+<h2>Modificar</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>Cliente</h4>
+        <hr />
+        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ClienteId" />
+        <div class="form-group">
+            <label asp-for="Correo" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Correo" class="form-control" />
+                <span asp-validation-for="Correo" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Direccion" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Direccion" class="form-control" />
+                <span asp-validation-for="Direccion" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Nombre" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Nota" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <textarea asp-for="Nota" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Nota" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Telefono" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Telefono" class="form-control" />
+                <span asp-validation-for="Telefono" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Volver a Clientes</a>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
