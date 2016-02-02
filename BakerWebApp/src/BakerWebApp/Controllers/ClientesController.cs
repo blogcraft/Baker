@@ -89,8 +89,6 @@ namespace BakerWebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Cliente cliente)
         {
-            cliente.Usuario = _userManager.FindByNameAsync(User.Identity.Name).Result;
-            cliente.UsuarioId = cliente.Usuario.Id;
             if (ModelState.IsValid)
             {
                 _context.Update(cliente);

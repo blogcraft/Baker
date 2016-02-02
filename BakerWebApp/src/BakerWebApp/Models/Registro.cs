@@ -16,6 +16,7 @@ namespace BakerWebApp.Models
         public string UsuarioId { get; set; }
 
         [DataType(DataType.DateTime)]
+        [Display(Name ="Fecha")]
         public DateTime FechaRegistro { get; set; }
 
         [DataType(DataType.MultilineText)]

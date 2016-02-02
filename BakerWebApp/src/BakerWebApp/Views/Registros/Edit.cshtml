@@ -12,11 +12,11 @@
         <hr />
         <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="RegistroId" />
+        <input type="hidden" asp-for="UsuarioId" />
         <div class="form-group">
-            <label asp-for="ClienteId" class="control-label col-md-2">ClienteId</label>
+            <label asp-for="Cliente" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <select asp-for="ClienteId" class="form-control" />
-                <span asp-validation-for="ClienteId" class="text-danger" />
+                <select asp-for="ClienteId" asp-items="ViewBag.Cliente" class="form-control"></select>
             </div>
         </div>
         <div class="form-group">
@@ -43,16 +43,10 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <div class="checkbox">
-                    <input asp-for="Pagado" />
-                    <label asp-for="Pagado"></label>
+                    <label asp-for="Pagado">
+                        <input type="checkbox" asp-for="Pagado" />@Html.DisplayNameFor(z => z.Pagado)
+                    </label>
                 </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="UsuarioId" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="UsuarioId" class="form-control" />
-                <span asp-validation-for="UsuarioId" class="text-danger" />
             </div>
         </div>
         <div class="form-group">
