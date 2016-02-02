@@ -49,7 +49,7 @@ namespace BakerWebApp.Controllers
         // GET: Registros/Create
         public IActionResult Create()
         {
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "ClienteId", "Cliente");
+            ViewBag.Cliente = new SelectList(_context.Clientes, "ClienteId", "Nombre");
             return View();
         }
 
@@ -67,7 +67,7 @@ namespace BakerWebApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "ClienteId", "Cliente", registro.ClienteId);
+            ViewBag.Cliente = new SelectList(_context.Clientes, "ClienteId", "Nombre", registro.ClienteId);
             return View(registro);
         }
 
@@ -84,7 +84,7 @@ namespace BakerWebApp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "ClienteId", "Cliente", registro.ClienteId);
+            ViewBag.Cliente = new SelectList(_context.Clientes, "ClienteId", "Nombre", registro.ClienteId);
             return View(registro);
         }
 
@@ -93,16 +93,13 @@ namespace BakerWebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Registro registro)
         {
-            registro.Usuario = _userManager.FindByNameAsync(User.Identity.Name).Result;
-            registro.UsuarioId = registro.Usuario.Id;
-
             if (ModelState.IsValid)
             {
                 _context.Update(registro);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "ClienteId", "Cliente", registro.ClienteId);
+            ViewBag.Cliente = new SelectList(_context.Clientes, "ClienteId", "Cliente", registro.ClienteId);
             return View(registro);
         }
 
